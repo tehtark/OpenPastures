@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="69">
+    <author>Tark</author>
+    <version>1.0.1.0</version>
+    <title>
+        <en>OpenPastures</en>
+    </title>
+
+<description>
+<en>
+<![CDATA[OpenPastures: Pack of fenceless animal pastures. (currently four)
+
+- ChangeLog:
+- Added a medium left handed cow pasture. 
+- Added a small chicken pasture.
+- Removed german translation, it's google translate.
+
+- Open Chicken Pasture Small:
+Price: £6000
+Capacity: 12
+
+- Open Cow Pasture Small:
+Price: £68500
+Capacity: 12
+
+- Open Cow Pasture Medium Right:
+Price: £98500
+Capacity: 24
+
+- Open Cow Pasture Medium Left:
+Price: £98500
+Capacity: 24
+
+These pastures will not remove foliage, change the terrain level or have a fence. ]]>
+</en>
+</description>
+
+    <iconFilename>icon_OpenPastures.dds</iconFilename>
+    <multiplayer supported="true"/>
+
+<storeItems>
+    <storeItem xmlFilename="cowPastureSmall/cowPastureSmall.xml" />
+    <storeItem xmlFilename="chickenPastureSmall/chickenPastureSmall.xml" />
+</storeItems>
+    
+</modDesc>

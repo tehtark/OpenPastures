@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable type="chickenHusbandry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/placeable.xsd">
+    <storeData>
+        <name>Open Chicken Pasture - Small</name>
+        <image>$data/placeables/lizard/chickenBarnSmall/store_chickenBarnSmall.png</image>
+        <price>6000</price>
+        <functions>
+            <function>$l10n_function_animalPenChicken</function>
+        </functions>
+        <lifetime>1000</lifetime>
+        <dailyUpkeep>10</dailyUpkeep>
+        <rotation>0</rotation>
+        <brand>NONE</brand>
+        <species>placeable</species>
+        <category>animalpens</category>
+        <brush>
+            <type>placeable</type>
+            <category>animals</category>
+            <tab>chickens</tab>
+        </brush>
+        <vertexBufferMemoryUsage>16128</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>4608</indexBufferMemoryUsage>
+        <textureMemoryUsage>1048576</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+
+        <storeIconRendering>
+            <settings cameraXRot="-20" cameraYRot="50" advancedBoundingBox="true"/>
+        </storeIconRendering>
+        <audioMemoryUsage>0</audioMemoryUsage>
+    </storeData>
+
+    <base>
+        <filename>chickenPastureSmall/chickenPastureSmall.i3d</filename>
+        <canBeRenamed>true</canBeRenamed>
+    </base>
+
+    <placement useRandomYRotation="false" useManualYRotation="true" >
+        <testAreas>
+            <testArea startNode="testArea1Start" endNode="testArea1End" />
+        </testAreas>
+
+        <sounds>
+            <place template="smallImp" />
+            <placeLayered template="chickenLayer" />
+        </sounds>
+    </placement>
+
+    <clearAreas>
+
+    </clearAreas>
+
+    <leveling>
+
+        <levelAreas>
+        </levelAreas>
+
+        <paintAreas>
+        </paintAreas>
+        
+    </leveling>
+
+    <indoorAreas>
+    </indoorAreas>
+
+    <foliageAreas>
+    </foliageAreas>
+    
+    <triggerMarkers>
+        <triggerMarker node="markerFood" filename="$data/shared/assets/marker/markerIcons.xml" id="UNLOAD" />
+        <triggerMarker node="markerAnimals" filename="$data/shared/assets/marker/markerIcons.xml" id="ANIMALS" />
+        <triggerMarker node="markerMilk" filename="$data/shared/assets/marker/markerIcons.xml" id="LOAD" />
+        <triggerMarker node="markerPoles" filename="$data/shared/assets/marker/markerIcons.xml" id="QUESTION_MARK" />
+        <triggerMarker node="markerEggsDecal1" adjustToGround="true" />
+        <triggerMarker node="markerEggsDecal2" adjustToGround="true" />
+        <triggerMarker node="markerEggsDecal3" adjustToGround="true" />
+        <triggerMarker node="markerEggsDecal4" adjustToGround="true" />
+    </triggerMarkers>
+
+    <tipOcclusionUpdateAreas>
+        <tipOcclusionUpdateArea startNode="tipOcclusionUpdateArea1Start" endNode="tipOcclusionUpdateArea1End" />
+    </tipOcclusionUpdateAreas>
+
+    <ai>
+        <updateAreas>
+            <updateArea startNode="tipOcclusionUpdateArea1Start" endNode="tipOcclusionUpdateArea1End" />
+        </updateAreas>
+    </ai>
+
+    <hotspots>
+        <hotspot type="CHICKEN" teleportNode="teleportNode" />
+    </hotspots>
+
+    <animatedObjects>
+        <animatedObject saveId="poles">
+            <animation duration="0.1">
+                <part node="poles">
+                    <keyFrame time="0.0" visibility="true" />
+                    <!-- <keyFrame time="0.0" translation="0 0.25 15" visibility="true" /> -->
+                    <keyFrame time="1.0" visibility="false" />
+                    <!-- <keyFrame time="1.0" translation="0 0 15" visibility="false" /> -->
+                </part>
+            </animation>
+             <controls triggerNode="poleTrigger" posAction="ACTIVATE_HANDTOOL" posText="Hide_Boundary_Poles" negText="Show_Grid_Boundary_Poles" />
+        </animatedObject>
+    </animatedObjects>
+
+    <infoTrigger triggerNode="infoTrigger" />
+
+    <husbandry saveId="Animals_CHICKEN" hasStatistics="false">
+
+        <animals type="CHICKEN" maxNumAnimals="30" >
+            <navigation rootNode="navigationRootNode" filename="chickenPastureSmall/NavMesh.i3d" />
+            <loadingTrigger node="loadingTrigger" />
+        </animals>
+
+        <food capacity="750" >
+            <foodPlane node="foodPlane" minY="0.042" maxY="0.165" changeVisibility="true" defaultFillType="WHEAT"/>
+            <feedingTrough exactFillRootNode="exactFillRootNodeFood" />
+        </food>
+
+        <pallets fillType="EGG" maxNumPallets="8" unitText="$l10n_unit_pieces">
+            <palletTrigger node="palletTrigger" />
+            <spawnPlaces>
+                <spawnPlace startNode="palletArea1Start" endNode="palletArea1End" />
+                <spawnPlace startNode="palletArea2Start" endNode="palletArea2End" />
+            </spawnPlaces>
+        </pallets>
+
+        <fences>
+        </fences>
+
+    </husbandry>
+
+    <i3dMappings>
+        <i3dMapping id="teleportNode" node="0>0" />
+        <i3dMapping id="foodPlane" node="0>1|0" />
+        <i3dMapping id="exactFillRootNodeFood" node="0>1|1" />
+        <i3dMapping id="foodPlace1" node="0>1|2|0" />
+        <i3dMapping id="foodPlace2" node="0>1|2|1" />
+        <i3dMapping id="storage" node="0>2" />
+        <i3dMapping id="navigationRootNode" node="0>3" />
+        <i3dMapping id="navigationMesh" node="0>3|0" />
+        <i3dMapping id="palletTrigger" node="0>4|0" />
+        <i3dMapping id="palletArea1Start" node="0>4|1" />
+        <i3dMapping id="palletArea1End" node="0>4|1|0" />
+        <i3dMapping id="palletArea2Start" node="0>4|2" />
+        <i3dMapping id="palletArea2End" node="0>4|2|0" />
+        <i3dMapping id="markerFood" node="0>5|0" />
+        <i3dMapping id="markerEggsDecal1" node="0>5|1|0" />
+        <i3dMapping id="markerEggsDecal2" node="0>5|1|1" />
+        <i3dMapping id="markerEggsDecal3" node="0>5|1|2" />
+        <i3dMapping id="markerEggsDecal4" node="0>5|1|3" />
+        <i3dMapping id="markerAnimals" node="0>5|2" />
+        <i3dMapping id="markerPoles" node="0>5|3" />
+        <i3dMapping id="fencePoles" node="0>6" />
+        <i3dMapping id="poles" node="0>6|0" />
+        <i3dMapping id="poleTrigger" node="0>6|1" />
+        <i3dMapping id="infoTrigger" node="0>7" />
+        <i3dMapping id="loadingTrigger" node="0>8" />
+        <i3dMapping id="tipOcclusionUpdateArea1Start" node="0>10|0" />
+        <i3dMapping id="tipOcclusionUpdateArea1End" node="0>10|0|0" />
+    </i3dMappings>
+</placeable>
